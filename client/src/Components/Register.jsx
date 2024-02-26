@@ -8,6 +8,35 @@ export default function Register() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    async function signUp(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        let item = { name, email, password };
+        
+        let response = await fetch("http://127.0.0.1:8000/api/register", {
+            method: 'POST',
+            body: JSON.stringify(item),
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        });
+        if (response.ok){
+           let result = await response.json();
+           console.log("result", result);
+           alert('Registration successfull')
+           setName("");
+            setEmail("");
+            setPassword("");
+
+        }else {
+            // Handle non-OK response (e.g., display error message)
+            console.error('Failed to register:', response.statusText);
+        }
+       
+    }
+    
   return (
     <div className='col-sm-6 offset-sm-3'>
         <h3>Register Component</h3>
@@ -31,7 +60,7 @@ export default function Register() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}/>
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onClick={(event) => signUp(event)}>
         Sign Up
       </Button>
     </Form>
