@@ -1,5 +1,6 @@
-import { useState } from 'react'
-
+import Header from './Components/Header'
+import {Routes,Route} from 'react-router-dom'
+import Register from './Components/Register'
 import './App.css'
 
 function App() {
@@ -7,7 +8,12 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>App</h1>
+      <Header/>
+      <Routes>
+      <Route path='/' element={<Register/>}/>
+
+      </Routes>
+  
 
     </div>
   )
