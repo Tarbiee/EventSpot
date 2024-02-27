@@ -13,6 +13,21 @@ export default function Events() {
         .then(res => res.json())
         .then((data) => setEvents(data))
     },[])
+
+    function handleDelete(id){
+         fetch(`http://127.0.0.1:8000/api/delete/${id}`,{
+            method:'DELETE'
+        })
+        .then(response => {
+            if(response.ok){
+                setEvents(events.filter(event => event.event_id !== id));
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting event:', error);
+        });
+        
+    }
   return (
     <div>
         <AdminBar/>
@@ -29,7 +44,7 @@ export default function Events() {
               </thead>
               <tbody>
                 {events.map((event) => (
-                  <tr key={event.id}>
+                  <tr key={event.event_id}>
                     <td>{event.event_id}</td>
                     <td>{event.event_name}</td>
                     <td>
@@ -38,7 +53,7 @@ export default function Events() {
                         </Link>              
                     </td>
                     <td>
-                      <FontAwesomeIcon icon={faTrashCan} style={{ color: '#40A2D8' }} />
+                      <FontAwesomeIcon icon={faTrashCan} style={{ color: '#40A2D8' }} onClick={() => handleDelete(event.event_id)} />
                     </td>
                   </tr>
                 ))}
