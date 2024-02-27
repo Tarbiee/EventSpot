@@ -1,4 +1,5 @@
-import Header from './Components/Header'
+import Admin from './Components/Admin'
+import AddEvent from './Components/AddEvent'
 import {Routes,Route} from 'react-router-dom'
 import Register from './Components/Register'
 import Login from './Components/Login'
@@ -9,10 +10,11 @@ function App() {
 
   return (
     <div className='App'>
-      <Header/>
       <Routes>
       <Route path='/' element={<Register/>}/>
       <Route path='/login' element={<Login/>}/>
+      <Route path='/admin' element={<Admin/>}/>
+      <Route path='/add_event' element={<AddEvent/>}/>
 
       </Routes>
   
