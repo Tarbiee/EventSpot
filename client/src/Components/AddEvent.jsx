@@ -27,7 +27,45 @@ export default function AddEvent() {
         const file = event.target.files[0];
         setInputs({ ...inputs, event_image: file });
     }
-  
+    async function addEvent(event){
+        event.preventDefault();
+        console.log(inputs)
+
+        const formData = new FormData();
+        formData.append('event_name', inputs.event_name);
+        formData.append('event_date', inputs.event_date);
+        formData.append('event_location', inputs.event_location);
+        formData.append('event_organizer', inputs.event_organizer);
+        formData.append('event_category', inputs.event_category);
+        formData.append('event_capacity', inputs.event_capacity);
+        formData.append('event_status', inputs.event_statu);
+        formData.append('ticket_type', inputs.ticket_type);
+        formData.append('ticket_price', inputs.ticket_price);
+        formData.append('event_description', inputs.event_description);
+        formData.append('event_image', inputs.event_image);
+
+        let response = await fetch("http://127.0.0.1:8000/api/add_event",{
+            method:'POST',
+            body: formData
+        });
+        if (response.ok){
+            alert("Data added")
+        setInputs({
+            event_name:'',
+            event_date: '',
+            event_location: '',
+            event_organizer: '',
+            event_category: '',
+            event_capacity: '',
+            event_status:'',
+            ticket_type: 'regular', 
+            ticket_price: '',
+            event_image: '',
+            event_description: ''
+        });
+        }
+        formRef.current.reset(); 
+    }
   return (
     <div>
         <AdminBar/>
@@ -78,7 +116,7 @@ export default function AddEvent() {
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCategory">
-                    <Form.Control type="text" placeholder="Event Category" 
+                    <Form.Control type="text" placeholder="Event Status" 
                     name='event_status'
                     value={inputs.event_status}
                     onChange={handleChange}
