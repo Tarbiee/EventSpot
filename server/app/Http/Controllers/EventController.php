@@ -31,4 +31,9 @@ class EventController extends Controller
     {
         return Event::all();
     }
+
+    function delete($id)
+    {
+        return $id;
+    }
 }
