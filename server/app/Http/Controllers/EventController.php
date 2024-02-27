@@ -25,7 +25,6 @@ class EventController extends Controller
         $event->event_image=$req->file('event_image') ->store('uploads');
         $event->save();
         return $event;
-        
     }
     function events()
     {
@@ -34,11 +33,18 @@ class EventController extends Controller
 
     function delete($id)
     {
-        $result= Event::where('id',$id)->delete();
+        $result= Event::where('event_id',$id)->delete();
         if($result)
         {
             return ["result" => "product has been deleted"];
         }
         return ["message" => "operation failed"];
     }
+    function getEvent($id)
+    {
+        return Event::find($id);
+    }
+
+
+
 }
