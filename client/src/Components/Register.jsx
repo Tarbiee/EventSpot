@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Register() {
-
+    const navigate = useNavigate()
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -24,11 +25,12 @@ export default function Register() {
         });
         if (response.ok){
            let result = await response.json();
-           console.log("result", result);
+           localStorage.setItem("user-info", JSON.stringify(result))
            alert('Registration successfull')
            setName("");
             setEmail("");
             setPassword("");
+            navigate('/login')
 
         }else {
             // Handle non-OK response (e.g., display error message)
