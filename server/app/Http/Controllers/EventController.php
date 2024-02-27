@@ -34,6 +34,11 @@ class EventController extends Controller
 
     function delete($id)
     {
-        return $id;
+        $result= Event::where('id',$id)->delete();
+        if($result)
+        {
+            return ["result" => "product has been deleted"];
+        }
+        return ["message" => "operation failed"];
     }
 }
