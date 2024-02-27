@@ -27,4 +27,8 @@ class EventController extends Controller
         return $event;
         
     }
+    function events()
+    {
+        return Event::all();
+    }
 }
