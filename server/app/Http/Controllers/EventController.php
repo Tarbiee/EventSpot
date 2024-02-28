@@ -18,10 +18,10 @@ class EventController extends Controller
         $event->event_organizer=$req->input('event_organizer');
         $event->event_category=$req->input('event_category');
         $event->event_capacity=$req->input('event_capacity');
-        $event->event_status=$req->input('event_status');
-        $event->ticket_type=$req->input('ticket_type');
-        $event->ticket_price=$req->input('ticket_price');
-        $event->available_tickets=$req->input('available_tickets');
+        $event->regular_ticket_price=$req->input('regular_ticket_price');
+        $event->vip_ticket_price=$req->input('tvip_ticket_price');
+        $event->available_regular_tickets=$req->input('available_regular_tickets');
+        $event->available_vip_tickets=$req->input('available_vip_tickets');
         $event->event_image=$req->file('event_image') ->store('uploads');
         $event->save();
         return $event;
@@ -40,6 +40,7 @@ class EventController extends Controller
         }
         return ["message" => "operation failed"];
     }
+
     function getEvent($id)
     {
         return Event::find($id);
@@ -51,20 +52,18 @@ class EventController extends Controller
         if (!$event) {
             return response()->json(["message" => "Event not found"], 404);
         }
+        $event->event_name=$req->input('event_name');
+        $event->event_description=$req->input('event_description');
+        $event->event_date=$req->input('event_date');
+        $event->event_location=$req->input('event_location');
+        $event->event_organizer=$req->input('event_organizer');
+        $event->event_category=$req->input('event_category');
+        $event->event_capacity=$req->input('event_capacity');
+        $event->regular_ticket_price=$req->input('regular_ticket_price');
+        $event->vip_ticket_price=$req->input('tvip_ticket_price');
+        $event->available_regular_tickets=$req->input('available_regular_tickets');
+        $event->available_vip_tickets=$req->input('available_vip_tickets');
 
-        $event->event_name = $req->input('event_name');
-        $event->event_description = $req->input('event_description');
-        $event->event_date = $req->input('event_date');
-        $event->event_location = $req->input('event_location');
-        $event->event_organizer = $req->input('event_organizer');
-        $event->event_category = $req->input('event_category');
-        $event->event_capacity = $req->input('event_capacity');
-        $event->event_status = $req->input('event_status');
-        $event->ticket_type = $req->input('ticket_type');
-        $event->ticket_price = $req->input('ticket_price');
-        $event->available_tickets = $req->input('available_tickets');
-
-        // Check if a new image file is uploaded
         if ($req->hasFile('event_image')) {
             $event_image = $req->file('event_image')->store('uploads');
             $event->event_image = $event_image;
