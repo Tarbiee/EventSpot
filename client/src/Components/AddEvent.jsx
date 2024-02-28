@@ -38,7 +38,7 @@ export default function AddEvent() {
         formData.append('event_organizer', inputs.event_organizer);
         formData.append('event_category', inputs.event_category);
         formData.append('event_capacity', inputs.event_capacity);
-        formData.append('event_status', inputs.event_statu);
+        formData.append('event_status', inputs.event_status);
         formData.append('ticket_type', inputs.ticket_type);
         formData.append('ticket_price', inputs.ticket_price);
         formData.append('event_description', inputs.event_description);

@@ -21,16 +21,21 @@ export default function Login() {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
+            credentials: 'include',
             body: JSON.stringify(item)
         });
         if (response.ok){
            let result = await response.json();
            localStorage.setItem("user-info", JSON.stringify(result))
            alert('Login successfull')
-           if(result.user && result.user.email === 'john@123'){
+           
+           if(result.email === 'john@123'){
             navigate('/admin')
+        }else{
+            navigate('/homepage')
+
         }
-        navigate('/homepage')
+        
 
             setEmail("");
             setPassword("");
