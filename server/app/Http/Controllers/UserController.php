@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
+
 
 class UserController extends Controller
 {
@@ -18,18 +21,38 @@ class UserController extends Controller
         $user->save();
         return $user;
     }
+    
     function login(Request $req)
-    {   
-        $user = User::where('email', $req->input('email'))->first();
-        if (!$user) {
-        return response()->json(['error' => "User not found"], 404);
+   {
+    if (!Auth::attempt($req->only('email', 'password'))) {
+        return response()->json(['error' => "Invalid credentials"], 401);
     }
-    // Check if the password matches
-    if (!Hash::check($req->input('password'), $user->password)) {
-        return response()->json(['error' => "Email or password is not matched"], 401);
+
+    // If the login attempt is successful, retrieve the authenticated user
+    $user = Auth::user();
+    $token= $user->createToken('token')->plainTextToken;
+
+    $cookie = cookie('jwt', $token, 60*24);
+
+    // Return the user data
+    return response()->json([
+        'message' => 'success'
+    ])->withCookie($cookie);
     }
-    // If both email and password are correct, return user data
-    return $user;
+
+    function logout()
+    {
+        $cookie = Cookie::forget('jwt');
+        return response ([
+            'message' => 'Success'
+        ])->withCookie($cookie);
+
     }
+
+    function user()
+    {
+        return Auth::user();
+    }
+
 
 }
