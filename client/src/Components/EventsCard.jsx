@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import Header from './Header';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { FaInfoCircle } from 'react-icons/fa';
+import {Link} from 'react-router-dom'
 
 export default function EventsCard() {
     const [events, setEvents] = useState([])
@@ -25,7 +27,11 @@ export default function EventsCard() {
                     <Card.Body>
                     <Card.Title style={{fontSize:"16px"}}>Event Name: {event.event_name}</Card.Title>
                     <Card.Text style={{fontSize:"15px"}}>Descrption: {event.event_description}</Card.Text>
-                    <Button>View Event</Button>
+                    <Link to={`/events_card/${event.event_id}`}>
+                        <Button variant="primary">
+                        <FaInfoCircle /> More Info
+                        </Button>
+                        </Link>
                     </Card.Body>
                 </Card>
                 </Col>

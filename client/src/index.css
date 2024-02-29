@@ -1,3 +1,56 @@
 body{
   align-items: center;
 }
+.flex-container {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 70%; 
+  margin: 0 auto; 
+  height: 600px;
+  
+  border: 0ch;
+  border-radius: 20px;
+
+}
+
+.image {
+  height: 600px;
+  width: 100%;
+  
+}
+
+.content {
+  background-color: rgb(226, 224, 224);
+
+}
+
+.reservation{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 70%; 
+  margin: 0 auto; 
+  height: 600px;
+  background-color: rgb(226, 224, 224);
+  border: 0ch;
+  border-radius: 20px;
+}
+
+.image-content,
+.form {
+  padding: 20px;
+}
+.image-content img {
+  max-width: 100%; 
+  height: auto; 
+  max-height: 100%; 
+}
+
+@media (max-width: 768px) {
+  .reservation {
+    width: 90%; 
+    height: 500px; 
+  }
+}

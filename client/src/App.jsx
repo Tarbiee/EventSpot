@@ -6,6 +6,8 @@ import Login from './Components/Login'
 import Events from './Components/Events'
 import EditEvent from './Components/EditEvent'
 import EventsCard from './Components/EventsCard'
+import EventDetails from './Components/EventDetails'
+import Reservation from './Components/Reservation'
 import './App.css'
 import HomePage from './Components/HomePage'
 
@@ -23,6 +25,9 @@ function App() {
       <Route path='/events' element={<Events/>}/>
       <Route path='/edit_event/:id' element={<EditEvent/>}/>
       <Route path='/events_card' element={<EventsCard/>}/>
+      <Route path='/events_card/:id' element={<EventDetails/>}/>
+      <Route path='/reservations' element={<Reservation/>}/>
+
 
       </Routes>
   

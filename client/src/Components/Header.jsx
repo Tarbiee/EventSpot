@@ -15,14 +15,13 @@ export default function Header() {
     }
   return (
     <div>
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar style={{backgroundColor:'#faedcd'}}>
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="ml-auto">
-          <Nav.Link style={{color:"#0496ff"}} as={Link} to={"/dashboard"}>Dashboard</Nav.Link>
-            <Nav.Link style={{color:"#0496ff"}} as={Link} to={"/events_card"}>Events</Nav.Link>
-            <Nav.Link style={{color:"#0496ff"}} as={Link} to={"/add_event"}>Add Event</Nav.Link>
-            <Nav.Link style={{color:"#0496ff"}} onClick={logOut}>Log Out</Nav.Link>
+          <Nav.Link style={{color:"brown"}} as={Link} to={"/homepage"}>Home</Nav.Link>
+            <Nav.Link style={{color:"brown"}} as={Link} to={"/events_card"}>Events</Nav.Link>
+            <Nav.Link style={{color:"brown"}} onClick={logOut}>Log Out</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
