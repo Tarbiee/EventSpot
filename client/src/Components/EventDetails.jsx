@@ -26,6 +26,7 @@ export default function EventDetails() {
                <Container style={{ backgroundColor: '#f2f2f2', height: '200px', textAlign: 'center', paddingTop: '50px',borderRadius:'20px' }}>
                <Row className="justify-content-center mb-4">
                    <Col>
+                   
                        <h1>🎉 {event.event_name}</h1>
                    </Col>
                </Row>

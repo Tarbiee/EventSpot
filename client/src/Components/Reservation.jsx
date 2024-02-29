@@ -45,7 +45,6 @@ export default function Reservation() {
               <textarea className="form-control" id="field4" rows="3"></textarea>
             </div>
             <button type="submit" className="btn btn-primary" style={{ backgroundColor: 'brown', borderColor: 'brown' }}>Submit</button>
-
           </form>
         </Col>
       </Row>
