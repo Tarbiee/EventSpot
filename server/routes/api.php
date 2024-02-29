@@ -28,9 +28,10 @@ Route::delete('delete/{id}',[EventController::class,'delete']);
 Route::get('event/{id}',[EventController::class,'getEvent']);
 Route::put('update/{id}',[EventController::class,'updateEvent']);
 Route::post('events/{id}/reserve',[ReservationController::class,'reserveTickets']);
+Route::get('events',[EventController::class,'events']);
 
 Route::middleware('auth:sanctum')->group(function(){
-    Route::get('events',[EventController::class,'events']);
+   
     Route::get('user',[UserController::class,'user']);
     Route::post('logout',[UserController::class,'logout']);
 });

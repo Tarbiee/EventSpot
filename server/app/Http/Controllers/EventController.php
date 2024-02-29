@@ -19,7 +19,7 @@ class EventController extends Controller
         $event->event_category=$req->input('event_category');
         $event->event_capacity=$req->input('event_capacity');
         $event->regular_ticket_price=$req->input('regular_ticket_price');
-        $event->vip_ticket_price=$req->input('tvip_ticket_price');
+        $event->vip_ticket_price=$req->input('vip_ticket_price');
         $event->available_regular_tickets=$req->input('available_regular_tickets');
         $event->available_vip_tickets=$req->input('available_vip_tickets');
         $event->event_image=$req->file('event_image') ->store('uploads');
@@ -60,7 +60,7 @@ class EventController extends Controller
         $event->event_category=$req->input('event_category');
         $event->event_capacity=$req->input('event_capacity');
         $event->regular_ticket_price=$req->input('regular_ticket_price');
-        $event->vip_ticket_price=$req->input('tvip_ticket_price');
+        $event->vip_ticket_price=$req->input('vip_ticket_price');
         $event->available_regular_tickets=$req->input('available_regular_tickets');
         $event->available_vip_tickets=$req->input('available_vip_tickets');
 
