@@ -10,9 +10,9 @@ export default function EventsCard() {
     const brownButtonStyle = {
         backgroundColor: '#7f4f24',
         borderColor: 'brown',
-        color: 'white', // Text color
-        width: '150px', // Adjust the width as per your requirement
-        height: '40px', // Adjust the height as per your requirement
+        color: 'white', 
+        width: '150px', 
+        height: '40px', 
     };
 
     useEffect(() => {

@@ -5,7 +5,7 @@ export default function Footer() {
     <div>
       <footer className="footer-section">
         <div className="container">
-          <div className="footer-cta pt-5 pb-3"> {/* Reduce bottom padding */}
+          <div className="footer-cta pt-5 pb-3"> 
             <div className="row">
               <div className="col-xl-4 col-md-4 mb-30">
                 <div className="single-cta">
@@ -36,9 +36,9 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="footer-content pt-3 pb-3"> {/* Reduce top and bottom padding */}
+          <div className="footer-content pt-3 pb-3"> 
             <div className="row">
-              <div className="col-xl-4 col-lg-4 mb-30 d-flex align-items-center"> {/* Reduce bottom margin */}
+              <div className="col-xl-4 col-lg-4 mb-30 d-flex align-items-center"> 
                 <div className="footer-widget">
                   <span className="brand-initial">E</span>ventSpot
                   <div className="footer-social-icon">

@@ -33,7 +33,6 @@ export default function Register() {
             navigate('/login')
 
         }else {
-            // Handle non-OK response (e.g., display error message)
             console.error('Failed to register:', response.statusText);
         }
        
@@ -47,8 +46,6 @@ export default function Register() {
       className="hidden bg-cover lg:block lg:w-1/2"
       style={{
         backgroundImage: `url(${user})`,
-        
-      
       }}
         ></div>
 

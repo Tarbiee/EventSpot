@@ -126,11 +126,8 @@ export default function EditEvent() {
     {/* Navbar */}
     <header className="relative flex flex-col items-center bg-white px-4 py-4 shadow sm:flex-row md:h-20">
       <div className="flex w-full flex-col justify-between overflow-hidden transition-all sm:max-h-full sm:flex-row sm:items-center">
-        <div className="relative ml-10 flex items-center justify-between rounded-md sm:ml-auto">
-          
-         
+        <div className="relative ml-10 flex items-center justify-between rounded-md sm:ml-auto">  
         </div>
-
         <button
           className="px-6 py-3 duration-300 ease-linear flex justify-center w-full sm:w-auto border bg-brown-400/20 border-bg-[#7f4f24] text-white bg-[#7f4f24] rounded-xl"
           onClick={logOut}

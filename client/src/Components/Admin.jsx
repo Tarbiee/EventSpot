@@ -10,7 +10,6 @@ export default function Admin() {
   function logOut(){
     localStorage.clear();
     navigate('/login')
-
 }
   return (
     <div>
