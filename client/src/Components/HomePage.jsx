@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from './Header'
 import Hero from './Hero'
+import Footer from './Footer'
+
 
 export default function HomePage() {
 
@@ -17,11 +19,10 @@ export default function HomePage() {
   //     .catch(error => console.error('Error fetching data:', error));
   // }, []);
   return (
-    <div>
+    <div className='h_main'>
         <Header/>
         <Hero/>
-        
-      
+        <Footer/>
     </div>
   )
 }

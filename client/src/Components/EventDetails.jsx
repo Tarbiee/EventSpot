@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { CiBoxList } from "react-icons/ci";
+import { IoCreateSharp } from "react-icons/io5";
 
 export default function EventDetails() {
     const [event, setEvent] = useState(null);
@@ -101,7 +103,7 @@ export default function EventDetails() {
             <br></br>
             <div className="text-center">
                 <Link to="/reservations">
-                <Button style={{ backgroundColor: 'brown' }}>Make Reservations</Button>
+                <Button style={{ backgroundColor: '#7f4f24' }}>Make Reservations</Button>
                 </Link>
             </div>
         </div>
