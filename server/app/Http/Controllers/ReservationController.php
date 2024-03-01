@@ -10,7 +10,6 @@ class ReservationController extends Controller
 {
     function reserveTickets(Request $request)
     {
-        // Validate the request data
         $request->validate([
             'username' => 'required|string',
             'event_name' => 'required|string',
@@ -25,7 +24,6 @@ class ReservationController extends Controller
             return response()->json(['message' => 'Maximum of 5 tickets per user allowed'], 400);
         }
     
-        // Find the event by event name
         $event = Event::where('event_name', $request->input('event_name'))->first();
     
         if (!$event) {
@@ -45,7 +43,6 @@ class ReservationController extends Controller
         $reservation->ticket_quantity = $ticketQuantity;
         $reservation->save();
     
-        // Update available tickets count in the events table
         if ($ticketType === 'regular') {
             $event->available_regular_tickets -= $ticketQuantity;
         } else {

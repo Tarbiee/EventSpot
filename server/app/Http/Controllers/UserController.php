@@ -27,17 +27,11 @@ class UserController extends Controller
     if (!Auth::attempt($req->only('email', 'password'))) {
         return response()->json(['error' => "Invalid credentials"], 401);
     }
-
-    // If the login attempt is successful, retrieve the authenticated user
     $user = Auth::user();
     $token= $user->createToken('token')->plainTextToken;
 
     $cookie = cookie('jwt', $token, 60*24);
-
-    // Return the user data
-    return response()->json([
-        'message' => 'success'
-    ])->withCookie($cookie);
+    return $user;
     }
 
     function logout()
